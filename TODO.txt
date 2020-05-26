@@ -1,0 +1,8 @@
+- better location for tags (and categories)
+- tag and category formatting
+- highlight js syntax completely working
+- images (sizing, popup, as blog cover images)
+- text highlight color
+
+- documentation
+- node project (currently dependancies are in site)

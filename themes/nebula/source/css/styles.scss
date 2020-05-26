@@ -1,0 +1,235 @@
+/*
+*   nebula - styles.scss
+*   Primary stylesheet
+*/
+
+/* 
+*   Variables *
+*/  
+
+/* Colors */
+$page--bg-color: #113042; /* #222831 7ebdb4 */
+$page--fg-color: white; /* white */
+
+$nav--bg-color: #113042;
+$nav--fg-color: white;
+
+$accent-color: #6FB182;
+$link--fg-hover-color: white;
+
+$code--bg-color: black;
+
+/* Fonts */
+$primary-font: "Vollkorn", sans-serif;
+$alt-font: "Arial", serif;
+$mono-font: monospace;
+
+/* 
+*   Root level styles 
+*/
+body, html {
+  font-family: $primary-font;
+  background-color: $page--bg-color;
+  color: $page--fg-color;
+}
+
+/* 
+* Navbar
+*/
+
+/* Visible navbar */
+.navbar {
+  padding: 5px;
+  color: $nav--fg-color;
+  background-color: $nav--bg-color;
+}
+
+.navbar--title {
+  font-family: $alt-font;
+  text-decoration: none;
+  font-weight: bold;
+  color: $nav--fg-color;
+}
+
+/* Navbar links */
+.navbar--content {
+
+}
+
+.navbar--link {
+  color: $accent-color;
+  padding: 5px;
+}
+
+.navbar--link:hover {
+  color: $nav--bg-color;
+  background-color: $accent-color;
+}
+
+/*
+* Page content
+*/
+.page-center {
+  margin: 20px;
+  line-height: 1.4;
+}
+
+/* Inline code snippets */
+code {
+  font-family: $mono-font;
+  oveflow-x: auto;  
+  background-color: $code--bg-color;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+/*
+*   Blog posts
+*/
+
+.post-top--title {
+  font-family: $alt-font;
+  color: $accent-color;
+}
+
+.post-top--subtitle {
+  font-family: $primary-font;
+}
+
+.header {
+  font-family: $alt-font;
+}
+
+.post-content > h1, h2, h3, h4, h5, h6 { 
+  font-family: $alt-font;
+}
+
+.page-center a {
+  border-radius: 4px;
+  padding: 2px;
+  color: $accent-color;
+}
+
+.page-center a:hover {
+  color: $link--fg-hover-color;
+  background: $accent-color;
+}
+
+.post-divider {
+  border: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+/* Meta (tags & categories) */
+.post-meta--tag {
+  
+}
+
+.post-meta--category {
+
+}
+
+/*
+*     Index 
+*/
+
+.post-list > ul {
+  list-style-type: none;
+}
+
+.article--meta {
+  font-family: $primary-font;
+}
+
+/* 
+*   Code blocks (bear in mind they are formatted with highlighting.js markup) 
+*/
+
+/* Allow horizontal scrollbars (usually on mobile) when needed. .highlight class grabs the whole snippet */
+.highlight {
+  overflow-x: auto;
+  margin-left: 0 !important; /* let more of the code on the page */
+  padding-bottom: 10px; /* adding the 'copy code' button in site.js gives these a scrollbar, so pad the bottom so no ugly scrollbars show */
+  border-radius: 5px;
+  background-color: $code--bg-color;
+  font-family: $mono-font !important;
+}
+
+/* If code snippet has a title and or link provided in markdown, style them (they are contained in a <figcaption> */
+.highlight > figcaption {
+  margin-left: 10px;
+}
+
+/*Title */
+.highlight > figcaption > span {
+  font-family: $mono-font;
+  font-style: italic;
+}
+
+.highlight > figcaption > span::after {
+  content: ":  "
+}
+
+/* Url */
+.highlight > figcaption > a {
+  font-family: $alt-font;
+}
+
+.highlight > figcaption > a::before {
+  content: "(";
+  color: $page--fg-color;
+}
+
+.highlight > figcaption > a::after {
+  content: ")";
+  color: $page--fg-color;
+}
+
+/* Numbers */
+.gutter {
+  font-weight: bold;
+  padding-right: 5px;
+}
+
+/* Code */
+.highlight {
+  font-family: $mono-font;
+  font-size: 90%;
+  display: block !important;
+}
+
+.copy-code-btn {
+  font-weight: bold;
+}
+
+/*
+*   Blockquotes
+*/
+blockquote > p {
+  font-style: italic;
+}
+
+blockquote > footer > cite::before {
+  content: " - (";
+  color: $page--fg-color;
+}
+
+blockquote > footer > cite::after {
+  content: ")";
+  color: $page--fg-color;
+}
+
+/*
+*   Utility classes
+*/
+.primary-font {
+  font-family: $primary-font;
+}
+
+.alt-font {
+  font-family: $alt-font;
+}

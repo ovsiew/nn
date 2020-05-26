@@ -1,0 +1,11 @@
+<% if (page.tags && page.tags.length) { %> 
+    <div class="post-meta--tags">
+        Tags:
+        <%- list_tags(page.tags, {
+            show_count: false,
+            class: "post-meta--tag",
+            style: "none",
+            seperator: ","
+        }) %>
+    </div>
+<% } %>

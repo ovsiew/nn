@@ -1,0 +1,11 @@
+<% if (page.categories && page.categories.length) { %> 
+    <div class="post-meta--categories">
+        Categories:
+        <%- list_tags(page.categories, {
+            show_count: false,
+            class: "post-meta--category",
+            style: "none",
+            seperator: ","
+        }) %>
+    </div>
+<% } %>

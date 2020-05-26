@@ -1,0 +1,11 @@
+<nav class="navbar">
+
+    <a class="navbar--title" href="/"><%= theme.title %></a>
+    
+    <span class="navbar--content">
+        <% for (var i in theme.navbar_links) { %>
+            <a class="navbar--link" href="<%- url_for(theme.navbar_links[i]) %>"><%= i %></a>
+        <% } %>
+    </span>
+    
+</nav>

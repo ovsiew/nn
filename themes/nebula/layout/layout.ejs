@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- partial("_partials/head.ejs") %>
+</head>
+
+<body>
+
+    <div class="page-top">
+        <%- partial("_partials/navbar.ejs") %>
+    </div>
+
+    <div class="page-center">
+        <% if (page.layout === "project") { %>
+            <%- partial("_partials/project.ejs") %>
+        <% } %>
+        <%- body %>
+    </div>
+
+    <div class="page-bottom">
+        <%- partial("_partials/scripts.ejs") %>
+    </div>
+
+</body>
+
+</html>
