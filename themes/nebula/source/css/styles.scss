@@ -4,7 +4,7 @@
 */
 
 /* 
-*   Variables *
+*   Variables 
 */  
 
 /* Colors */
@@ -254,14 +254,14 @@ code {
   margin-left: 10px;
 }
 
-/*Title */
+/* Title */
 .highlight > figcaption > span {
   font-family: $mono-font;
   font-style: italic;
 }
 
 .highlight > figcaption > span::after {
-  content: ":  "
+  content: ":  ";
 }
 
 /* Url */
@@ -295,19 +295,6 @@ code {
 .copy-code-btn {
   font-weight: bold;
 }
-
-/* 
-* Images in blog posts and pages should popup into a 'dialog' when clicked 
-*/
-.page-center img {
-  border-radius: 4px;
-  transition: .2s;
-}
-
-.page-center img:hover {
-  opacity: .7;
-}
-
 
 /*
 *   Blockquotes

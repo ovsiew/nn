@@ -20,7 +20,7 @@ window.onload = function() {
     for (i = 0; i < highlightedBlocks.length; i++) {
         var codeText = highlightedBlocks[i].querySelector("td.code").innerText;
         var copyBtn = "<a class='copy-code-btn' href='javascript:copyCode(" + i + ");'>Copy to clipboard</a>";
-        highlightedBlocks[i].innerHTML += "<p>" + copyBtn + "<br>"; // Inserts button at bottom of snippet
+        highlightedBlocks[i].innerHTML += "<p>" + copyBtn + "</p><br>"; // Inserts button at bottom of snippet
         //console.log("highlightedBlock #" + i);
     }
 
