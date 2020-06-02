@@ -7,14 +7,22 @@
 
 <hr class="post-divider">
 
+<div class="post-sidebar">
+    <%- partial("_partials/post_sidebar.ejs") %>
+</div>
+
 <div class="post-content">
     <%- page.content %>
 </div>
 
 <hr class="post-divider">
-<div class="post-meta">
-    <%- partial("_partials/post_tags.ejs") %>
-    <%- partial("_partials/post_categories.ejs") %>
+<div class="post-meta__mobile">
+    <p>
+        <%- partial("_partials/post_tags.ejs") %>
+    </p>
+    <p>
+        <%- partial("_partials/post_categories.ejs") %>
+    </p>
 </div>
 
 <div class="post-comments">

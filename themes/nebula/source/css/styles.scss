@@ -8,13 +8,15 @@
 */  
 
 /* Colors */
-$page--bg-color: #113042; /* #222831 7ebdb4 */
-$page--fg-color: white; /* white */
+$page--bg-color: #22333B; /* #222831 7ebdb4 */
+$page--fg-color: white; 
 
-$nav--bg-color: #113042;
+$text-selection--bg-color: #75DDDD;
+
+$nav--bg-color: black;
 $nav--fg-color: white;
 
-$accent-color: #6FB182;
+$accent-color: #09BC8A;
 $link--fg-hover-color: white;
 
 $code--bg-color: black;
@@ -33,6 +35,24 @@ body, html {
   color: $page--fg-color;
 }
 
+/*
+*  Text selection
+*/
+::selection {
+  background-color: $text-selection--bg-color
+}
+
+/*
+*     Index 
+*/
+.post-list > ul {
+  list-style-type: none;
+}
+
+.article--meta {
+  font-family: $primary-font;
+}
+
 /* 
 * Navbar
 */
@@ -42,23 +62,60 @@ body, html {
   padding: 5px;
   color: $nav--fg-color;
   background-color: $nav--bg-color;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  opacity: .7;
+  z-index: 1;
+  
+
 }
 
 .navbar--title {
   font-family: $alt-font;
   text-decoration: none;
   font-weight: bold;
+  text-align: center;
   color: $nav--fg-color;
 }
 
 /* Navbar links */
 .navbar--content {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background-color: $nav--bg-color;
+  color: $nav--fg-color;
+  overflow-x: hidden;
+  transition: 0.5s;
+  opacity: .88;
+  backdrop-filter: blur(4px);
+}
 
+/* Open button */
+.navbar--open {
+  color: $accent-color;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.navbar--open:hover {
+  color: $nav--bg-color;
+  background-color: $accent-color;
 }
 
 .navbar--link {
+  font-size: 150%;
+  display: block;
+  padding: 50px;
   color: $accent-color;
-  padding: 5px;
+  transition: .3s;
 }
 
 .navbar--link:hover {
@@ -70,14 +127,19 @@ body, html {
 * Page content
 */
 .page-center {
+  padding-top: 50px;
   margin: 20px;
+  /* If user is not using mobile device, show the full sidebar, meaning we have to adjust the margin */
+  @media only screen and (min-width: 768px) {
+    margin-right: 200px; /* Same as widebar width + sidebar horizontal padding */
+  }
   line-height: 1.4;
 }
 
 /* Inline code snippets */
 code {
   font-family: $mono-font;
-  oveflow-x: auto;  
+  overflow-x: auto;  
   background-color: $code--bg-color;
   padding: 3px;
   border-radius: 3px;
@@ -124,25 +186,53 @@ code {
   background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
+/* Sidebar */
+.post-sidebar { /* Container */
+  
+  /* Desktop sidebar */
+  @media only screen and (min-width: 768px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    opacity: .9;
+    color: $nav--fg-color;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-top: 50px;
+    width: 180px;
+    height: 100%;
+    padding-right: 20px;
+  }
+
+}
+
+.post-sidebar--link {
+  font-size: 150%;
+  display: block;
+  padding: 50px;
+  color: $accent-color;
+  transition: .3s;
+}
+
+.post-sidebar--link:hover {
+  color: $nav--fg-color;
+  background-color: $accent-color;
+}
+
 /* Meta (tags & categories) */
+.post-meta__mobile {
+  /* Do not show on desktop since desktop users have sidebar */
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+}
 .post-meta--tag {
   
 }
 
 .post-meta--category {
 
-}
-
-/*
-*     Index 
-*/
-
-.post-list > ul {
-  list-style-type: none;
-}
-
-.article--meta {
-  font-family: $primary-font;
 }
 
 /* 
@@ -205,6 +295,19 @@ code {
 .copy-code-btn {
   font-weight: bold;
 }
+
+/* 
+* Images in blog posts and pages should popup into a 'dialog' when clicked 
+*/
+.page-center img {
+  border-radius: 4px;
+  transition: .2s;
+}
+
+.page-center img:hover {
+  opacity: .7;
+}
+
 
 /*
 *   Blockquotes

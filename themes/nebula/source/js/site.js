@@ -5,7 +5,11 @@
 
 var highlightedBlocks;
 
+var navOpen;
+
 window.onload = function() {
+
+    navOpen = false;
 
     // ** NOTE **
     // For highlighting to work, do NOT use external highlight.js - use Hexo's built in
@@ -17,7 +21,7 @@ window.onload = function() {
         var codeText = highlightedBlocks[i].querySelector("td.code").innerText;
         var copyBtn = "<a class='copy-code-btn' href='javascript:copyCode(" + i + ");'>Copy to clipboard</a>";
         highlightedBlocks[i].innerHTML += "<p>" + copyBtn + "<br>"; // Inserts button at bottom of snippet
-        this.console.log("highlightedBlock #" + i);
+        //console.log("highlightedBlock #" + i);
     }
 
 }
@@ -36,4 +40,15 @@ function copyCode(i) {
     setTimeout(function() {
         highlightedBlocks[i].querySelector("a.copy-code-btn").innerText = "Copy to clipboard";
     }, 3000);
+}
+
+// For navigation
+function toggleNav() {
+    if (navOpen) {
+        document.getElementById("navbar--content").style.width = "0";
+        navOpen = false;
+    } else {
+        document.getElementById("navbar--content").style.width = "300px";
+        navOpen = true;
+    }
 }

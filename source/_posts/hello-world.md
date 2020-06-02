@@ -72,3 +72,5 @@ All the features this blog has
 
 ## Notes
 1. for highlighting to work correctly, keep it enabled in _config, do not download from hljs's website
+
+## here is an image
