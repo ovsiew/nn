@@ -2,3 +2,9 @@
 
 - documentation
 - node project (currently dependancies are in site)
+
+- built in landing page on homepage
+- sections in post
+- page meta
+- finish? download page
+- project page

@@ -73,7 +73,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-exec");
     
     // Register tasks
-    grunt.registerTask("production", ["hexo:clean", "hexo:generate", "htmlmin", "cssmin", "uglify", "exec:log_production"]);
+    grunt.registerTask("production", ["hexo:generate", "htmlmin", "cssmin", "uglify", "exec:log_production"]);
     grunt.registerTask("build", ["hexo:generate", "exec:serve"]);
     grunt.registerTask("clean", ["exec:clean"]);
 

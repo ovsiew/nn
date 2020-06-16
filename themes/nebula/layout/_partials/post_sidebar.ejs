@@ -1,2 +1,18 @@
-<%- partial("_partials/post_tags.ejs") %>
-<%- partial("_partials/post_categories.ejs") %>
+<div class="post-sidebar">
+    <p>
+        <%- partial("_partials/post_tags.ejs") %>
+    </p>
+
+    <p>
+        <%- partial("_partials/post_categories.ejs") %>
+    </p>
+
+    <p>
+        <h3>Jump to</h3>
+        <a href="javascript:jumpTo('share');">Share</a>
+        <br>
+        <a href="javascript:jumpTo('comments');">Comments</a>
+        <br>
+        <a href="javascript:jumpTo('footer');">Post meta</a>
+    </p>
+</div>  

@@ -37,7 +37,7 @@ function copyCode(i) {
     document.execCommand("copy");
     document.body.removeChild(copyTextArea);
     highlightedBlocks[i].querySelector("a.copy-code-btn").innerText = "Copied!";
-    setTimeout(function() {
+    setTimeout(() => {
         highlightedBlocks[i].querySelector("a.copy-code-btn").innerText = "Copy to clipboard";
     }, 3000);
 }
@@ -51,4 +51,14 @@ function toggleNav() {
         document.getElementById("navbar--content").style.width = "300px";
         navOpen = true;
     }
+}
+
+// For jumping to #comments, #share, #footer on posts
+// Jumps to location & does animation
+function jumpTo(location) {
+    document.location.hash = "#" + location;
+    document.querySelector("#" + location + " h1").style.fontWeight = "bold";
+    setTimeout(() => {
+        document.querySelector("#" + location + " h1").style.fontWeight = "normal";
+    }, 3000);
 }
