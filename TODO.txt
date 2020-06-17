@@ -1,3 +1,11 @@
+- center pages 
+    - on desktop, good decent padding
+        - then adjust sidebar to give more space to keep all quick links from line wrapping
+    - on mobile, give only minimal margins like usual
+
+- sidebar  
+    - figure a mobile solution
+
 - images
 
 - documentation
@@ -8,3 +16,4 @@
 - page meta
 - finish? download page
 - project page
+

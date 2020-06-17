@@ -20,8 +20,24 @@ window.onload = function() {
     for (i = 0; i < highlightedBlocks.length; i++) {
         var codeText = highlightedBlocks[i].querySelector("td.code").innerText;
         var copyBtn = "<a class='copy-code-btn' href='javascript:copyCode(" + i + ");'>Copy to clipboard</a>";
-        highlightedBlocks[i].innerHTML += "<p>" + copyBtn + "</p><br>"; // Inserts button at bottom of snippet
-        //console.log("highlightedBlock #" + i);
+        highlightedBlocks[i].innerHTML += "<p>" + copyBtn + "</p><br>"; // Inserts button at bottom of snippet 
+    }
+
+    // If we are on a 'post' (indicated by sidebar), then insert post headers into the sidebar as quick-links
+    if (document.getElementById("post-sidebar")) {
+        var headers = document.querySelectorAll(".post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6");
+        document.getElementById("post-sidebar--post-headers").innerHTML += "<ul>";
+        for (i = 0; i < headers.length; i++) {
+            var text = headers[i].textContent;
+            var url = "#" + text.replace(/\s+/g, "-");
+            url = url.replace(",", "");
+            url = url.replace("(", "");
+            url = url.replace(")", "");
+            console.log("Text: " + text + ", URL: " + url);
+            document.getElementById("post-sidebar--post-headers").innerHTML += "<li><a href='" + url + "'>" + text + "</a></li>";
+        }
+        document.getElementById("post-sidebar--post-headers").innerHTML += "</ul>";
+        
     }
 
 }
@@ -53,12 +69,12 @@ function toggleNav() {
     }
 }
 
-// For jumping to #comments, #share, #footer on posts
+// For jumping to #locations on posts
 // Jumps to location & does animation
 function jumpTo(location) {
     document.location.hash = "#" + location;
-    document.querySelector("#" + location + " h1").style.fontWeight = "bold";
+    document.querySelector("#" + location + " h1").className += "jump-anim";
     setTimeout(() => {
-        document.querySelector("#" + location + " h1").style.fontWeight = "normal";
+        document.querySelector("#" + location + " h1").classList.remove("jump-anim");
     }, 3000);
 }
